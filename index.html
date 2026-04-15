@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rekatindo Pharmacy</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .logo h2 {
+      color: #1e3a8a;
+    }
+
+    .menu a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    /* HERO */
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #e6f0ff, #ffffff);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 70px;
+      color: #1e3a8a;
+      font-weight: 800;
+    }
+
+    .hero h2 {
+      font-size: 28px;
+      margin-top: 10px;
+      color: #333;
+      letter-spacing: 2px;
+    }
+
+    .hero .tagline {
+      margin-top: 10px;
+      font-style: italic;
+      color: #1e3a8a;
+    }
+
+    .hero p {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #666;
+    }
+
+    /* FORM */
+    .contact {
+      padding: 50px 20px;
+      background: #fff;
+    }
+
+    .contact h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .contact form {
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact button {
+      width: 100%;
+      padding: 12px;
+      background: #1e3a8a;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 30px;
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* WHATSAPP BUTTON */
+    .wa-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      font-size: 28px;
+      padding: 15px;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero h2 {
+        font-size: 20px;
+      }
+
+      .menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Rekatindo Logo">
+      <h2>Rekatindo</h2>
+    </div>
+
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">Tentang Kami</a>
+      <a href="#">Layanan</a>
+      <a href="#">Kemitraan</a>
+      <a href="#">Hubungi Kami</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>REKATINDO</h1>
+    <h2>PHARMACY GROUP</h2>
+    <p class="tagline">Solusi Distribusi Farmasi Terpercaya</p>
+
+    <p>
+      Pedagang Besar Farmasi<br>
+      PT Rekayasa Teknologi Indonesia
+    </p>
+  </section>
+
+  <!-- FORM KONTAK -->
+  <section class="contact">
+    <h2>Hubungi Kami</h2>
+
+    <form action="https://formspree.io/f/xxxxxxx" method="POST">
+      <input type="text" name="nama" placeholder="Nama" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="pesan" placeholder="Pesan" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Jl. Komplek Setrasari Mall Blok C1 No. 67<br>
+    Kota Bandung<br>
+    Telp: +62 22 87775346
+  </div>
+
+  <!-- WHATSAPP BUTTON -->
+  <a href="https://wa.me/6285920231576" target="_blank" class="wa-button">
+    💬
+  </a>
+
+</body>
+</html>
