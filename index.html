@@ -22,9 +22,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 40px;
+      padding: 20px 40px;
       background: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
     .logo {
@@ -34,11 +34,7 @@
     }
 
     .logo img {
-      height: 40px;
-    }
-
-    .logo h2 {
-      color: #1e3a8a;
+      height: 45px;
     }
 
     .menu a {
@@ -51,73 +47,126 @@
     /* HERO */
     .hero {
       height: 90vh;
+      background: url('https://images.unsplash.com/photo-1580281657527-47c1d7f66c2b?auto=format&fit=crop&w=1400&q=80') no-repeat center;
+      background-size: cover;
+    }
+
+    .hero-overlay {
+      background: rgba(255,255,255,0.9);
+      height: 100%;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(to right, #e6f0ff, #ffffff);
+    }
+
+    .hero-content {
       text-align: center;
       padding: 20px;
+      max-width: 900px;
     }
 
     .hero h1 {
-      font-size: 70px;
+      font-size: clamp(48px, 8vw, 90px);
+      font-weight: 900;
       color: #1e3a8a;
-      font-weight: 800;
     }
 
     .hero h2 {
-      font-size: 28px;
-      margin-top: 10px;
-      color: #333;
-      letter-spacing: 2px;
+      font-size: clamp(20px, 3vw, 32px);
+      letter-spacing: 4px;
+      margin-bottom: 10px;
     }
 
-    .hero .tagline {
-      margin-top: 10px;
-      font-style: italic;
-      color: #1e3a8a;
-    }
-
-    .hero p {
-      margin-top: 15px;
+    .tagline {
       font-size: 18px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .subtext {
+      font-size: 14px;
       color: #666;
     }
 
-    /* FORM */
-    .contact {
-      padding: 50px 20px;
-      background: #fff;
+    /* CTA */
+    .cta-box {
+      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
     }
 
-    .contact h2 {
+    .cta-box img {
+      width: 60px;
+    }
+
+    .cta-button {
+      background: #1e3a8a;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* SECTION */
+    section {
+      padding: 60px 20px;
       text-align: center;
-      margin-bottom: 20px;
     }
 
-    .contact form {
-      max-width: 500px;
-      margin: auto;
+    /* SEARCH */
+    .search-box {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
     }
 
-    .contact input,
-    .contact textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .contact button {
-      width: 100%;
+    .search-box input {
       padding: 12px;
+      width: 300px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .search-box button {
+      padding: 12px 20px;
       background: #1e3a8a;
       color: white;
       border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    /* TABLE */
+    .table-container {
+      margin-top: 20px;
+      overflow-x: auto;
+    }
+
+    /* FORM */
+    .contact-form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .contact-form button {
+      background: #1e3a8a;
+      color: white;
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
     }
 
     /* FOOTER */
@@ -129,7 +178,7 @@
       font-size: 14px;
     }
 
-    /* WHATSAPP BUTTON */
+    /* WA BUTTON */
     .wa-button {
       position: fixed;
       bottom: 20px;
@@ -140,20 +189,24 @@
       padding: 15px;
       border-radius: 50%;
       text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .hero h2 {
-        font-size: 20px;
-      }
-
+    /* MOBILE */
+    @media (max-width: 600px) {
       .menu {
         display: none;
+      }
+
+      .cta-box {
+        flex-direction: column;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .search-box input {
+        width: 100%;
       }
     }
   </style>
@@ -161,84 +214,91 @@
 
 <body>
 
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <div class="logo">
-      <img src="logo.png" alt="Rekatindo Logo" style="height:50px;">
-      <h2>PBF Rekatindo</h2>
-    </div>
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">
+    <img src="logo.png">
+    <h3>PBF Rekatindo</h3>
+  </div>
+  <div class="menu">
+    <a href="#">Home</a>
+    <a href="#cek">Cek Stok</a>
+    <a href="#stok">Produk</a>
+    <a href="#contact">Kontak</a>
+  </div>
+</div>
 
-    <div class="menu">
-      <a href="#">Home</a>
-      <a href="#">Tentang Kami</a>
-      <a href="#">Layanan</a>
-      <a href="#">Kemitraan</a>
-      <a href="#">Hubungi Kami</a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay">
+    <div class="hero-content">
+
+      <h1>REKATINDO</h1>
+      <h2>PHARMACY GROUP</h2>
+
+      <p class="tagline">
+        Mitra Distribusi Farmasi Andal untuk Pertumbuhan Bisnis Anda
+      </p>
+
+      <p class="subtext">
+        Pedagang Besar Farmasi<br>
+        PT Rekayasa Teknologi Indonesia
+      </p>
+
+      <div class="cta-box">
+        <img src="https://i.imgur.com/7yUvePI.png">
+        <a href="#contact" class="cta-button">Hubungi Kami</a>
+      </div>
+
     </div>
   </div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>REKATINDO</h1>
-    <h2>PHARMACY GROUP</h2>
-    <p class="tagline">Solusi Distribusi Farmasi Terpercaya</p>
+<!-- CEK STOK -->
+<section id="cek">
+  <h2>Cek Ketersediaan Stok</h2>
+  <p>Masukkan nama produk untuk melihat ketersediaan</p>
 
-    <p>
-      Pedagang Besar Farmasi<br>
-      PT Rekayasa Teknologi Indonesia
-    </p>
-  </section>
+  <div class="table-container">
+    <iframe width="100%" height="500"
+      src="https://datastudio.google.com/embed/reporting/109c38e6-b773-41d7-9784-890c4d95bc55/page/FpQvF">
+    </iframe>
+  </div>
 </section>
 
 <!-- STOK PRODUK -->
-<section style="padding:50px; background:#f9fafc;">
-  <h2 style="text-align:center; margin-bottom:20px;">
-    Update Stok Produk
-  </h2>
+<section id="stok">
+  <h2>Update Stok Produk</h2>
 
-  <div style="display:flex; justify-content:center;">
+  <div class="table-container">
     <iframe 
-  src="https://docs.google.com/spreadsheets/d/1o3Kig-C_psuLtvHu8IMfB9PrA_9xOF872_m4YXNI2Is/preview?gid=0&fvid=1108992190" 
-  width="100%" 
-  height="600" 
-  frameborder="0">
-</iframe>
-      </div>
-</section>
-  <!-- FORM KONTAK -->
-  <section class="contact">
-    <h2>Hubungi Kami</h2>
-
-    <form action="https://formspree.io/f/xwvavvnn" method="POST">
-      <input type="text" name="nama" placeholder="Nama" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <textarea name="pesan" placeholder="Pesan" required></textarea>
-      <button type="submit">Kirim</button>
-    </form>
-  </section>
-<section id="stok-realtime" style="padding: 60px 0; background-color: #ffffff;">
-    <div class="container">
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h2 style="font-weight: bold; color: #333;">Cek Ketersediaan Stok</h2>
-            <p>Silakan ketik nama produk pada kolom di bawah ini untuk melihat ketersediaan barang.</p>
-        </div>
-        
-        <div class="embed-responsive" style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-            <iframe width="100%" height="500" src="https://datastudio.google.com/embed/reporting/109c38e6-b773-41d7-9784-890c4d95bc55/page/FpQvF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-        </div>
-    </div>
-</section>
-  <!-- FOOTER -->
-  <div class="footer">
-    Jl. Komplek Setrasari Mall Blok C1 No. 67<br>
-    Kota Bandung<br>
-    Telp: +62 22 87775346
+      src="https://docs.google.com/spreadsheets/d/1o3Kig-C_psuLtvHu8IMfB9PrA_9xOF872_m4YXNI2Is/preview?gid=0&fvid=1108992190"
+      width="100%" height="600">
+    </iframe>
   </div>
+</section>
 
-  <!-- WHATSAPP BUTTON -->
-  <a href="https://wa.me/6285920231576" target="_blank" class="wa-button">
-    💬
-  </a>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Hubungi Kami</h2>
+
+  <form class="contact-form" action="https://formspree.io/f/xwvavvnn" method="POST">
+    <input type="text" name="nama" placeholder="Nama" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="pesan" placeholder="Pesan" required></textarea>
+    <button type="submit">Kirim</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  Jl. Komplek Setrasari Mall Blok C1 No. 67<br>
+  Kota Bandung<br>
+  Telp: +62 22 87775346
+</div>
+
+<!-- WA -->
+<a href="https://wa.me/6285920231576" class="wa-button">💬</a>
 
 </body>
 </html>
