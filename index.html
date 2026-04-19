@@ -6,25 +6,31 @@
   <title>PBF Rekatindo</title>
 
   <style>
+    /* 1. RESET & DASAR */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
 
     body {
       background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
     }
 
-    /* NAVBAR */
+    /* 2. NAVBAR */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 15px 40px;
       background: white;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .logo {
@@ -34,7 +40,7 @@
     }
 
     .logo img {
-      height: 45px;
+      height: 40px;
     }
 
     .menu a {
@@ -42,101 +48,96 @@
       text-decoration: none;
       color: #333;
       font-weight: 500;
+      transition: color 0.3s;
     }
-/* HERO BARU */
-.hero {
-  height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to right, #e6f0ff, #ffffff);
-  text-align: center;
-  padding: 20px;
-}
 
-/* Tambahkan ini jika ingin teksnya terlihat lebih profesional */
-.hero h1 {
-  font-size: 3rem;
-  color: #333;
-  margin-bottom: 10px;
+    .menu a:hover {
+      color: #1e3a8a;
+    }
+
+    /* 3. HERO SECTION (Desain Baru Minimalis) */
+    .hero {
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #e6f0ff 0%, #ffffff 100%);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: #1e3a8a;
+      margin-bottom: 5px;
+      letter-spacing: 2px;
     }
 
     .hero h2 {
-      font-size: clamp(20px, 3vw, 32px);
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: #444;
+      font-weight: 400;
       letter-spacing: 4px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .tagline {
-      font-size: 18px;
+      font-size: 1.1rem;
+      max-width: 600px;
+      color: #555;
       margin-bottom: 10px;
-      color: #444;
+      font-weight: 500;
     }
 
     .subtext {
-      font-size: 14px;
-      color: #666;
+      font-size: 0.9rem;
+      color: #888;
     }
 
-    /* CTA */
-    .cta-box {
-      margin-top: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .cta-box img {
-      width: 60px;
-    }
-
-    .cta-button {
-      background: #1e3a8a;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    /* SECTION */
+    /* 4. SECTION UMUM */
     section {
       padding: 60px 20px;
       text-align: center;
     }
 
-    /* SEARCH */
-    .search-box {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
+    /* 5. SISTEM IFRAME RESPONSIF */
+    .iframe-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto 30px auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
     }
 
-    .search-box input {
-      padding: 12px;
-      width: 300px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
+    .responsive-container-looker {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 70%; /* Rasio Looker Studio */
     }
 
-    .search-box button {
-      padding: 12px 20px;
-      background: #1e3a8a;
-      color: white;
+    .responsive-container-sheet {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 60%; /* Rasio Tabel Produk */
+    }
+
+    .responsive-container-looker iframe,
+    .responsive-container-sheet iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       border: none;
-      border-radius: 6px;
     }
 
-    /* TABLE */
-    .table-container {
-      margin-top: 20px;
-      overflow-x: auto;
-    }
-
-    /* FORM */
+    /* 6. FORM KONTAK */
     .contact-form {
       max-width: 500px;
       margin: auto;
@@ -149,55 +150,88 @@
     .contact-form textarea {
       padding: 12px;
       border-radius: 6px;
-      border: 1px solid #ccc;
+      border: 1px solid #ddd;
+      outline: none;
     }
 
     .contact-form button {
       background: #1e3a8a;
       color: white;
-      padding: 12px;
+      padding: 14px;
       border-radius: 6px;
       border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
     }
 
-    /* FOOTER */
+    .contact-form button:hover {
+      background: #152a61;
+    }
+
+    /* 7. FOOTER */
     .footer {
-      padding: 30px;
+      padding: 40px;
       background: #1e3a8a;
       color: white;
       text-align: center;
       font-size: 14px;
     }
 
-    /* WA BUTTON */
+    /* 8. WA BUTTON INTERAKTIF */
     .wa-button {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 25px;
+      right: 25px;
       background: #25D366;
       color: white;
-      font-size: 28px;
-      padding: 15px;
-      border-radius: 50%;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+      z-index: 1000;
+      transition: all 0.4s ease;
+      font-weight: 600;
     }
 
-    /* MOBILE */
+    .wa-button::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(37, 211, 102, 0.5);
+      border-radius: 50px;
+      z-index: -1;
+      animation: pulse-wa 2s infinite;
+      left: 0; 
+      top: 0;
+    }
+
+    @keyframes pulse-wa {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    .wa-button:hover {
+      background: #128C7E;
+      transform: translateY(-5px);
+    }
+
+    /* 9. MOBILE ADJUSTMENT */
     @media (max-width: 600px) {
-      .menu {
-        display: none;
+      .navbar { padding: 15px 20px; }
+      .menu { display: none; }
+      .responsive-container-looker { padding-top: 120%; }
+      .responsive-container-sheet { padding-top: 150%; }
+      
+      .wa-button span:last-child {
+        display: none; /* Menyembunyikan teks di HP agar tidak menutupi konten, hanya ikon */
       }
-
-      .cta-box {
-        flex-direction: column;
-      }
-
-      .search-box {
-        flex-direction: column;
-      }
-
-      .search-box input {
-        width: 100%;
+      .wa-button {
+        padding: 12px;
       }
     }
   </style>
@@ -205,101 +239,73 @@
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">
-    <img src="logo.png">
+    <img src="logo.png" alt="Logo Rekatindo">
     <h3>PBF Rekatindo</h3>
   </div>
   <div class="menu">
     <a href="#">Home</a>
     <a href="#cek">Cek Stok</a>
-    <a href="#stok">Produk</a>
     <a href="#contact">Kontak</a>
   </div>
 </div>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-overlay">
-    <div class="hero-content">
+  <h1>REKATINDO</h1>
+  <h2>PHARMACY GROUP</h2>
+  <p class="tagline">Mitra Cerdas Apotek & Pertumbuhan Bisnis Anda</p>
+  <p class="subtext">Pedagang Besar Farmasi<br>PT Rekayasa Teknologi Indonesia</p>
+</section>
 
-      <h1>REKATINDO</h1>
-      <h2>PHARMACY GROUP</h2>
+<section id="cek" style="background:#f9fafc;">
+  
+  <h2 style="margin-bottom:10px;">Cek Ketersediaan Stok</h2>
+  <p style="margin-bottom:10px; color: #666;">Gunakan pencarian di bawah untuk menemukan produk.</p>
+  <p style="margin-bottom:30px; font-weight: 500; color: #444;">Setelah menemukan produk, silakan pilih dan "klik untuk pesan" pada tabel selanjutnya.</p>
 
-      <p class="tagline">
-        Mitra Cerdas Apotek & Pertumbuhan Bisnis Anda
-      </p>
-
-      <p class="subtext">
-        Pedagang Besar Farmasi<br>
-        PT Rekayasa Teknologi Indonesia
-      </p>
-
+  <div class="iframe-wrapper">
+    <div class="responsive-container-looker">
+      <iframe 
+        src="https://datastudio.google.com/embed/reporting/ab3d1cd4-7327-4355-bef8-faf543592996/page/2HdvF" 
+        allowfullscreen 
+        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+      </iframe>
     </div>
   </div>
-</section>
 
-<!-- CEK STOK -->
-<section id="cek" style="padding:50px 20px; background:#f9fafc;">
-  
-  <h2 style="text-align:center; margin-bottom:10px;">
-    Cek Ketersediaan Stok
-  </h2>
+  <h3 style="margin: 40px 0 20px 0; color: #1e3a8a; font-size: 1.5rem;">Daftar Produk & Pesanan</h3>
 
-  <p style="text-align:center; margin-bottom:10px;">
-    Gunakan pencarian di bawah untuk menemukan produk
-  </p>
-
-  <p style="text-align:center; font-weight:500; margin-bottom:25px;">
-    Setelah menemukan produk, silakan pilih dan "klik untuk pesan"  pada tabel selanjutnya 
-  </p>
-
-  <!-- LOOKER STUDIO (SEARCH) -->
-  <div style="max-width:1100px; margin:0 auto 15px auto;">
-    <iframe 
-      src="https://datastudio.google.com/embed/reporting/a823a181-118d-4d28-ae20-773bb1aeb5fb/page/pBbvF"
-      width="100%" 
-      height="420"
-      frameborder="0"
-      style="border:0; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05);"
-      allowfullscreen>
-    </iframe>
-  </div>
-
-  <!-- GOOGLE SHEETS (INTERAKSI) -->
-  <div style="max-width:1100px; margin:0 auto;">
-    <iframe 
-      src="https://docs.google.com/spreadsheets/d/1o3Kig-C_psuLtvHu8IMfB9PrA_9xOF872_m4YXNI2Is/preview?gid=0&single=true&widget=true&headers=false"
-      width="100%" 
-      height="500"
-      style="border:0; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
-    </iframe>
+  <div class="iframe-wrapper">
+    <div class="responsive-container-sheet">
+      <iframe 
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQOG91Z5G96u-NGmz-1_58ijpWnDPE5z0r6wOFKFNx-4Qv65XmNW_NXq6FMDlxs8AOSF_X9-ryunm_6/pubhtml?widget=true&headers=false">
+      </iframe>
+    </div>
   </div>
 
 </section>
 
-<!-- CONTACT -->
-  <section id="contact">
-  <h2>Hubungi Kami</h2>
-
+<section id="contact">
+  <h2 style="margin-bottom: 30px;">Hubungi Kami</h2>
   <form class="contact-form" action="https://formspree.io/f/xwvavvnn" method="POST">
-    <input type="text" name="nama" placeholder="Nama" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="pesan" placeholder="Pesan" required></textarea>
-    <button type="submit">Kirim</button>
+    <input type="text" name="nama" placeholder="Nama Lengkap" required>
+    <input type="email" name="email" placeholder="Email Anda" required>
+    <textarea name="pesan" rows="5" placeholder="Tulis pesan atau daftar pesanan Anda..." required></textarea>
+    <button type="submit">Kirim Pesan</button>
   </form>
 </section>
 
-<!-- FOOTER -->
 <div class="footer">
   Jl. Komplek Setrasari Mall Blok C1 No. 67<br>
   Kota Bandung<br>
   Telp: +62 22 87775346
 </div>
 
-<!-- WA -->
-<a href="https://wa.me/6285920231576" class="wa-button">💬</a>
+<a href="https://wa.me/6285920231576" class="wa-button" target="_blank">
+  <span style="font-size: 24px;">💬</span>
+  <span>Hubungi Kami</span>
+</a>
 
 </body>
 </html>
